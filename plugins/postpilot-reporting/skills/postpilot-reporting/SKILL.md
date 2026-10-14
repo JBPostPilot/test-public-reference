@@ -1,11 +1,11 @@
 ---
 name: postpilot-reporting
-description: Analyze a PostPilot "Campaign Data" Google Sheet (title "PostPilot — <Brand> — Campaign Data") to reproduce the PostPilot dashboard views, answer questions about direct mail campaign performance, and make evidence-based recommendations on where to invest more, what to improve, where to redirect budget, and where spend is not paying off. Use whenever a user shares, links, pastes, or asks about one of these sheets or its CSV, or asks about their PostPilot or direct mail campaign performance. If the sheet link is not available, the only response is to ask for it (see "Start here"). Works for any brand; the column layout never changes. Written for brand owners and marketers.
+description: Analyze your brand's PostPilot Campaign Data Google Sheet (from the Google Sheets integration in PostPilot) to see your dashboard views, answer questions about your direct mail campaign performance, and get evidence-based recommendations on where to invest more, what to improve, where to redirect budget, and where spend is not paying off. Use whenever the user shares, links, pastes, or asks about their Campaign Data sheet or its CSV, or asks about their PostPilot or direct mail performance. If the sheet link is not available, the only response is to ask for it (see "Start here").
 ---
 
 # PostPilot Reporting
 
-PostPilot mails physical postcards and mailers for e-commerce brands. A brand that turns on PostPilot's Google Sheets integration gets one sheet, rewritten in full once a day, with one row per campaign per send date. This skill turns that sheet into the same read-out the brand sees in the PostPilot app, lets the user ask questions against it, and produces recommendations grounded in the numbers.
+PostPilot mails physical postcards and mailers for e-commerce brands. The user runs one brand on PostPilot, and its Google Sheets integration gives them one Campaign Data sheet for that brand, rewritten in full once a day, with one row per campaign per send date. This skill turns their sheet into the same read-out they see in the PostPilot app, answers their questions against it, and gives recommendations grounded in their numbers.
 
 ## Start here: get the sheet link
 
@@ -33,16 +33,16 @@ Three jobs, in order of importance:
 
 ## 1. Who is reading
 
-The reader is the brand owner or marketer who runs these campaigns. Write to them directly, in the second person: "your campaigns", "your Retention spend", "the link to your sheet". Never refer to them in the third person ("the brand", "the merchant", "the customer's sheet"). If someone else asked (for example a PostPilot Account Manager), write it the same way, since the read-out is shared with the brand as-is.
+The reader is the owner or marketer of the one brand in the sheet. Write to them directly, in the second person: "your campaigns", "your Retention spend", "the link to your sheet". Never refer to them in the third person ("the brand", "the merchant", "the customer's sheet"). It is their sheet and their account: never describe the skill as working across brands, and never compare them with other brands or PostPilot customers.
 
 - Plain language, lead with outcomes and one or two actions, no internal jargon. Say "control group" rather than "holdout", "mailed" rather than "processed".
 - "iROAS" is a product term, not jargon. Always use it by name (and ROAS, iRevenue, iRPR, CPA, AOV); explain it in plain words on first use ("iROAS, the return on the revenue the mail actually caused, measured against a control group"), then keep using the term. Never replace it with a paraphrase such as "revenue the mail caused" or "incremental return".
-- Anything a reader might otherwise need PostPilot to explain (why recent months look low, why a campaign has no iROAS, why a figure is preliminary, why the sheet differs from the app) is explained in the response itself, in the sentence or table where it applies, in a form the brand can act on.
-- Never add a section addressed to PostPilot staff ("For the AM", "Internal notes", "Diagnostics"). If a point is worth making, it is worth making to the brand.
+- Anything a reader might otherwise need PostPilot to explain (why recent months look low, why a campaign has no iROAS, why a figure is preliminary, why the sheet differs from the app) is explained in the response itself, in the sentence or table where it applies, in a form they can act on.
+- Never add sections addressed to anyone but the reader ("Internal notes", "Diagnostics"). If a point is worth making, make it to them.
 
 ## 2. The sheet
 
-- Title: `PostPilot — <Brand> — Campaign Data`. One tab. Header in row 1, data from row 2, newest dates first.
+- Title: `PostPilot — <brand name> — Campaign Data`. One tab. Header in row 1, data from row 2, newest dates first.
 - Named range `PostPilotData` covers columns A to J. Column K (`iroas`) is outside it. Read all eleven columns (`A1:K`).
 - Grain: one row per `campaign_id` per `date`. The pair is unique.
 - Window: rolling two years of send dates. Archived campaigns disappear with their whole history on the next rewrite.
@@ -181,9 +181,9 @@ Always say which window and which basis (attributed vs incremental) the answer u
 
 ## 8. Recommendations
 
-Recommendations are the main deliverable. The job is to help the brand get the most incremental revenue from its direct mail budget. The read-out is only worth acting on if it is honest, so the evidence decides the recommendation, in both directions.
+Recommendations are the main deliverable. The job is to help the reader get the most incremental revenue from their direct mail budget. The read-out is only worth acting on if it is honest, so the evidence decides the recommendation, in both directions.
 
-Order of preference, because it is usually what earns the brand the most:
+Order of preference, because it is usually what earns them the most:
 
 1. Grow what is proven.
 2. Improve what is underperforming.
@@ -192,13 +192,13 @@ Order of preference, because it is usually what earns the brand the most:
 
 Fixing or redirecting comes before cutting because a reworked campaign keeps its audience, its history, and its control group, so the next result is measurable and builds on the last. A cut ends the learning. Reductions on thin or immature data are the most common mistake in reading direct mail: revenue for the last seven weeks is still arriving, and small campaigns are noisy.
 
-Each recommendation names the campaign or category, the evidence, the action, the dollar amount, and the expected effect. Three to five, ordered by incremental dollar upside, and always end with a budget plan. Use these rules as defaults, and say when a brand's economics justify different thresholds (margin, LTV, subscription).
+Each recommendation names the campaign or category, the evidence, the action, the dollar amount, and the expected effect. Three to five, ordered by incremental dollar upside, and always end with a budget plan. Use these rules as defaults, and say when their economics justify different thresholds (margin, LTV, subscription).
 
 Grow (lead with these):
 - iROAS at or above 2.0 on at least $1,000 mature spend and 1,000 cards: recommend more volume or frequency. Expected effect: iRevenue grows roughly with spend until the audience is exhausted.
 - iROAS between 1.0 and 2.0: the campaign pays for itself incrementally. Recommend a measured increase (10 to 25 percent) with the control group kept on, and a review after one maturity window.
 - No iROAS but mature ROAS above the account average: recommend an increase plus a control group so the lift can be measured.
-- Category gaps: if the brand runs only one or two categories, recommend adding the missing one (a Prospecting brand with no Retention, a Retention brand with no winback) with a starting budget sized at 10 to 20 percent of current spend and a control group from day one.
+- Category gaps: if they run only one or two categories, recommend adding the missing one (Prospecting with no Retention, Retention with no winback) with a starting budget sized at 10 to 20 percent of current spend and a control group from day one.
 
 Improve (the response to underperformance):
 - Mature ROAS well below the account average (under half) with meaningful spend: recommend changing the campaign before changing its budget. For Prospecting, narrow the audience or improve the lookalike source; for Retention, strengthen the offer or lengthen the gap since last purchase; for Retargeting, shorten the delay after the site visit.
@@ -231,12 +231,12 @@ Measurement:
 
 Confidence: state it. High when the campaign has 1,000+ mature cards and an iROAS. Medium with ROAS only on 1,000+ cards. Low below 1,000 cards or when most spend is in flight. On low confidence, recommend waiting for maturity and keeping spend level rather than moving budget in either direction. Budget moves above 25 percent of account spend, and any reduction, need high confidence.
 
-Language: when budget moves between campaigns, say "redirect" and name the destination. When the recommendation really is to spend less, say "reduce" and show the evidence; do not soften it into something else. If a brand asks directly whether to spend less, give a straight answer from the evidence (iROAS, maturity, sample size, what the improve steps could change), including "yes" when the reduce bar is met. The budget decision is theirs.
+Language: when budget moves between campaigns, say "redirect" and name the destination. When the recommendation really is to spend less, say "reduce" and show the evidence; do not soften it into something else. If the reader asks directly whether to spend less, give a straight answer from the evidence (iROAS, maturity, sample size, what the improve steps could change), including "yes" when the reduce bar is met. The budget decision is theirs.
 
 ## 9. Read-out template
 
 ```
-PostPilot performance: <Brand>, <first date> to <last date>
+PostPilot performance: <brand name>, <first date> to <last date>
 Mature through <cutoff>. In flight since then: $<spend>, <postcards> postcards.
 
 Headline
@@ -269,7 +269,7 @@ Caveats
 
 ## 10. Things not to do
 
-- Do not add a "For the AM" or any staff-only section; explain the point to the brand in the body instead.
+- Do not add sections addressed to anyone but the reader; make the point to them in the body.
 - Do not drop the term "iROAS" (or ROAS, iRevenue, iRPR) in favor of a plain-language paraphrase. Explain the term, then use it.
 - Do not sum, average, or trend `iroas`.
 - Do not read blank `iroas` as zero. Drop `clicks` entirely.
@@ -280,7 +280,7 @@ Caveats
 - Do not divide `spend` or `revenue` by 100.
 - Do not group by `campaign_name`.
 - Do not present attributed revenue as incremental revenue, or the reverse.
-- Do not expect the sheet to match the PostPilot dashboard home page exactly: that page shows a send-weighted iROAS for a chosen date range, over campaigns with measurable positive lift. The sheet's `iroas` matches the per-campaign figure on the campaign page and campaigns list (an active campaign can differ slightly on a given day because the two update at different times). If a brand asks why the numbers differ, explain this.
+- Do not expect the sheet to match the PostPilot dashboard home page exactly: that page shows a send-weighted iROAS for a chosen date range, over campaigns with measurable positive lift. The sheet's `iroas` matches the per-campaign figure on the campaign page and campaigns list (an active campaign can differ slightly on a given day because the two update at different times). If the reader asks why the numbers differ, explain this.
 
 ## 11. Glossary
 

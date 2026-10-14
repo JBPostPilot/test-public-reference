@@ -2,7 +2,7 @@
 
 A Claude skill that analyzes your PostPilot **Campaign Data** Google Sheet. It recreates your dashboard views, answers questions about campaign performance, and recommends where to invest more, what to improve, and where to move budget, based on your own numbers.
 
-It is the same analysis PostPilot Account Managers use. The skill contains instructions only, no data.
+It works on your own sheet, for your brand. The skill contains instructions only, no data.
 
 ## Install
 
