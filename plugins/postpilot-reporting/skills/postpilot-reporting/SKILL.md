@@ -1,11 +1,21 @@
 ---
 name: postpilot-reporting
-description: Analyze a PostPilot "Campaign Data" Google Sheet (title "PostPilot — <Brand> — Campaign Data") to reproduce the PostPilot dashboard views, answer questions about direct mail campaign performance, and make evidence-based recommendations on where to invest more, what to improve, where to redirect budget, and where spend is not paying off. Use whenever a user shares, links, pastes, or asks about one of these sheets or its CSV. Works for any brand; the column layout never changes. Written for the brand; PostPilot Account Managers use the same output as-is.
+description: Analyze a PostPilot "Campaign Data" Google Sheet (title "PostPilot — <Brand> — Campaign Data") to reproduce the PostPilot dashboard views, answer questions about direct mail campaign performance, and make evidence-based recommendations on where to invest more, what to improve, where to redirect budget, and where spend is not paying off. Use whenever a user shares, links, pastes, or asks about one of these sheets or its CSV, or asks about their PostPilot or direct mail campaign performance. If the sheet link is not available, the only response is to ask for it (see "Start here"). Works for any brand; the column layout never changes. Written for brand owners and marketers.
 ---
 
 # PostPilot Reporting
 
-PostPilot mails physical postcards and mailers for e-commerce brands. Every brand with Google Sheet reports enabled gets one sheet, rewritten in full once a day, with one row per campaign per send date. This skill turns that sheet into the same read-out the brand sees in the PostPilot app, lets the user ask questions against it, and produces recommendations grounded in the numbers.
+PostPilot mails physical postcards and mailers for e-commerce brands. A brand that turns on PostPilot's Google Sheets integration gets one sheet, rewritten in full once a day, with one row per campaign per send date. This skill turns that sheet into the same read-out the brand sees in the PostPilot app, lets the user ask questions against it, and produces recommendations grounded in the numbers.
+
+## Start here: get the sheet link
+
+Every answer comes from the user's own Campaign Data sheet. Before doing anything else, check whether the link to that Google Sheet (or the sheet's data, for example an attached CSV export of it) is in the conversation.
+
+If it is not, the only response is to ask for the link. Do not answer the question, estimate, use general benchmarks, describe what the analysis would show, or ask anything else. Reply with this, adjusted only to fit the conversation:
+
+> To look at your PostPilot results, I need the link to your PostPilot Campaign Data Google Sheet. You can get it in PostPilot: go to the **Integrations** page and open the **Google Sheets** integration. Paste the link here and I'll take it from there.
+
+If a link is shared but cannot be opened (for example, Google Drive is not connected or the sheet is not shared with this account), say so plainly and offer the two fixes: connect Google Drive in Claude's settings, or download the sheet as a CSV (File → Download → Comma-separated values) and attach it here.
 
 Three jobs, in order of importance:
 
@@ -15,7 +25,7 @@ Three jobs, in order of importance:
 
 ## 1. Who is reading
 
-Write every response for the brand (merchant, marketer, founder), whoever asked. PostPilot Account Managers share these read-outs with brands directly, so there is one version of the output, not a brand version and an internal version.
+The reader is the brand owner or marketer who runs these campaigns. Write to them directly, in the second person: "your campaigns", "your Retention spend", "the link to your sheet". Never refer to them in the third person ("the brand", "the merchant", "the customer's sheet"). If someone else asked (for example a PostPilot Account Manager), write it the same way, since the read-out is shared with the brand as-is.
 
 - Plain language, lead with outcomes and one or two actions, no internal jargon. Say "control group" rather than "holdout", "mailed" rather than "processed".
 - "iROAS" is a product term, not jargon. Always use it by name (and ROAS, iRevenue, iRPR, CPA, AOV); explain it in plain words on first use ("iROAS, the return on the revenue the mail actually caused, measured against a control group"), then keep using the term. Never replace it with a paraphrase such as "revenue the mail caused" or "incremental return".
@@ -51,7 +61,7 @@ Vocabulary for output: postcards (not impressions or cards sent), orders (not co
 
 ## 3. Loading
 
-CSV export of the sheet is the easiest input. Parse `date` as a date, the five numeric columns as numbers with blanks as missing (not zero), and `campaign_id` as text.
+The usual input is the sheet link, read through the user's Google Drive or Google Sheets connection. An attached CSV export of the same sheet works too. Parse `date` as a date, the five numeric columns as numbers with blanks as missing (not zero), and `campaign_id` as text.
 
 ```python
 import pandas as pd
@@ -101,7 +111,7 @@ Rules:
 
 - One value per campaign. Never sum, average, or trend the column; every row of a campaign repeats the same number.
 - Blank means not measurable: no control group, no spend yet, lift was zero or negative, or the campaign is too new to report (roughly the first two weeks after its first send). Blank is never zero.
-- Values are always positive. A campaign whose mailed group did no better than its control group shows blank rather than a negative number. So a blank on a campaign that does have a control group is a real result, not missing data: say so plainly to the brand (section 8).
+- Values are always positive. A campaign whose mailed group did no better than its control group shows blank rather than a negative number. So a blank on a campaign that does have a control group is a real result, not missing data: say so plainly (section 8).
 - Re-estimated daily until every card in the campaign is past 48 days, so it moves for active campaigns.
 - Control groups are usually 10 to 50 percent of the audience. Below roughly 1,000 mailed cards, treat iROAS as directional.
 - What iROAS does not capture: it counts orders within the 48-day window only. Repeat purchases after that, lifetime value from new customers, and any lift outside matched customers are excluded, so it is a conservative measure of value, most of all for Prospecting. Mention this when a campaign sits near 1.0, but do not use it to excuse a campaign that stays well below 1.0.

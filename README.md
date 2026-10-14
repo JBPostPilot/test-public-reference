@@ -33,16 +33,15 @@ Plugins you add on claude.ai are saved to your account, so they also show up in 
 
 ## Before you start
 
-- **Turn on Google Sheet reports for your PostPilot account.** Ask your Account Manager or PostPilot support. You'll get a sheet titled `PostPilot — <Your Brand> — Campaign Data`, refreshed daily.
+- **Connect PostPilot to Google Sheets.** In PostPilot, go to the **Integrations** page and open the **Google Sheets** integration. You'll get a sheet titled `PostPilot — <Your Brand> — Campaign Data` that refreshes daily, and that's where your sheet link comes from.
+- **Connect Google Drive in Claude** so Claude can open your sheet from its link.
 - **On Team and Enterprise plans,** an admin may need to allow skills and plugins.
 
 ## Use
 
-Give Claude your sheet in one of these ways:
+Paste the link to your Campaign Data sheet from the PostPilot Google Sheets integration. If you haven't shared it yet, Claude will ask you for it.
 
-- Export it as CSV and attach it.
-- Share it through a connected Google Drive.
-- Paste the data in.
+No Google Drive connection? Download the sheet as a CSV (File → Download → Comma-separated values) and attach it instead.
 
 Then ask:
 
