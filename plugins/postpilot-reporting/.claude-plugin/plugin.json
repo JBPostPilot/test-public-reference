@@ -1,0 +1,7 @@
+{
+  "name": "postpilot-reporting",
+  "version": "1.0.0",
+  "description": "Analyze your PostPilot Campaign Data sheet: dashboard views, answers to performance questions, and budget recommendations.",
+  "author": { "name": "PostPilot" },
+  "license": "MIT"
+}
