@@ -64,7 +64,7 @@ It is built to be honest about what the data can and cannot show:
 
 ## Data and privacy
 
-This repository contains no customer data. Your sheet is processed by Claude under your own account and its data settings. PostPilot receives nothing through this skill.
+This plugin is a single skill: instructions for Claude, with no code, MCP servers, hooks, or scripts. It sends nothing to PostPilot or any third party. It only reads the Campaign Data sheet you share, through your own Google Drive connection or a CSV you attach. Your data is handled by Claude under your account's data settings. This repository contains no customer data.
 
 ## Feedback
 

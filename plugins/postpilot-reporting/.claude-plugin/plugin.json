@@ -1,7 +1,10 @@
 {
   "name": "postpilot-reporting",
-  "version": "1.1.1",
-  "description": "Analyze your PostPilot Campaign Data sheet: dashboard views, answers to performance questions, and budget recommendations.",
-  "author": { "name": "PostPilot" },
-  "license": "MIT"
+  "displayName": "PostPilot Reporting",
+  "version": "1.2.0",
+  "description": "Analyze your PostPilot Campaign Data sheet: dashboard views, plain-language answers about direct mail performance, and evidence-based budget recommendations.",
+  "author": { "name": "PostPilot", "url": "https://www.postpilot.com" },
+  "homepage": "https://www.postpilot.com",
+  "license": "MIT",
+  "keywords": ["postpilot", "direct mail", "marketing", "reporting", "iroas", "ecommerce"]
 }
