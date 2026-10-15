@@ -12,10 +12,10 @@ If you ask about your campaigns without sharing the sheet, Claude will ask you f
 
 ## What this plugin runs, sends, and fetches
 
-- **Contents:** a single skill, which is instructions for Claude.
-- **Runs:** no code of its own, no MCP servers, no hooks, and no scripts.
+- **Contents:** two skills. `postpilot-reporting` is instructions for Claude. `postpilot-dashboard` adds the page code for a dashboard that Claude installs in your own Claude account.
+- **Runs:** no MCP servers, hooks, or scripts on your computer. The dashboard's page code runs only inside the dashboard artifact in your Claude account.
 - **Sends:** nothing to PostPilot or any third party.
-- **Fetches:** only the Campaign Data sheet you share. Claude reads it through your own Google Drive connection, or from a CSV you attach.
+- **Fetches:** only the Campaign Data sheet you share. Claude reads it through your own Google Drive or Google Sheets connection, or from a CSV you attach. The dashboard reads it through your Google Sheets connection each time it opens.
 - **Your data:** handled by Claude under your account's data settings.
 
 ## Support

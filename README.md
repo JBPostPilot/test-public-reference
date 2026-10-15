@@ -50,6 +50,12 @@ Then ask:
 - "Compare last 90 days to the prior 90."
 - "Is my winback campaign worth it?"
 
+## Live dashboard
+
+Ask "Build my PostPilot dashboard" and paste your sheet link. Claude builds a live dashboard in your Claude account with your headline results, iROAS vs. ROAS by campaign, recommendations, a budget plan, trends, and every campaign. It recalculates from your sheet each time it opens.
+
+It needs Claude.ai with the **Google Sheets** connector connected (Settings → Connectors).
+
 ## What it does
 
 - **Dashboard views:** top-line metrics, campaign table, category breakdown, and monthly trend.
@@ -64,7 +70,7 @@ It is built to be honest about what the data can and cannot show:
 
 ## Data and privacy
 
-This plugin is a single skill: instructions for Claude, with no code, MCP servers, hooks, or scripts. It sends nothing to PostPilot or any third party. It only reads the Campaign Data sheet you share, through your own Google Drive connection or a CSV you attach. Your data is handled by Claude under your account's data settings. This repository contains no customer data.
+This plugin has two skills: instructions for Claude, plus page code for a dashboard that Claude installs in your own Claude account. It runs no MCP servers, hooks, or scripts on your computer. It sends nothing to PostPilot or any third party. It only reads the Campaign Data sheet you share, through your own Google Drive connection or a CSV you attach. Your data is handled by Claude under your account's data settings. This repository contains no customer data.
 
 ## Feedback
 

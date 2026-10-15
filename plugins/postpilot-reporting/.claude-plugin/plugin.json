@@ -1,8 +1,8 @@
 {
   "name": "postpilot-reporting",
   "displayName": "PostPilot Reporting",
-  "version": "1.3.0",
-  "description": "Analyze your PostPilot Campaign Data sheet: dashboard views, plain-language answers about direct mail performance, and evidence-based budget recommendations.",
+  "version": "1.4.0",
+  "description": "Analyze your PostPilot Campaign Data sheet: plain-language answers about direct mail performance, evidence-based budget recommendations, and a live dashboard built in Claude.",
   "author": { "name": "PostPilot", "url": "https://www.postpilot.com" },
   "homepage": "https://www.postpilot.com",
   "license": "MIT",

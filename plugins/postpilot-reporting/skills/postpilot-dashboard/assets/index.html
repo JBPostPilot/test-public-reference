@@ -1,0 +1,203 @@
+<link rel="stylesheet" href="style.css">
+<div class="ppx" id="pp">
+  <section class="dark band" id="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <p class="label">__BRAND__ × PostPilot · Direct mail performance</p>
+        <span class="live"><span class="dot" aria-hidden="true"></span>Live from your Campaign Data sheet</span>
+      </div>
+      <h1 class="h1">Every $1 of measured mail brought back <span class="lime" data-source="account" data-field="weighted_iroas" data-row="0">—</span>.</h1>
+      <p class="sub">Spend-weighted iROAS across <span data-source="account" data-field="measured_campaigns" data-row="0">—</span> campaigns measured against a control group</p>
+      <p class="body">Mailed customers placed <b data-source="account" data-field="orders" data-row="0">—</b> orders worth <b data-source="account" data-field="revenue" data-row="0">—</b> from postcards with final results. Where a control group ran, the mail created <b data-source="account" data-field="irevenue" data-row="0">—</b> in new revenue it can take full credit for.</p>
+      <div class="stats" id="kpis">
+        <div><span class="stat-v" data-source="account" data-field="spend" data-row="0">—</span><span class="stat-l">Spend</span><span class="stat-n"><span data-source="account" data-field="postcards" data-row="0">—</span> postcards</span><div class="spark" id="spark-spend" data-source="monthly"></div></div>
+        <div><span class="stat-v" data-source="account" data-field="revenue" data-row="0">—</span><span class="stat-l">Revenue</span><span class="stat-n">Orders from mailed customers</span><div class="spark" id="spark-revenue" data-source="monthly"></div></div>
+        <div><span class="stat-v" data-source="account" data-field="roas" data-row="0">—</span><span class="stat-l">ROAS</span><span class="stat-n">Revenue per $1 of spend</span><div class="spark" id="spark-roas" data-source="monthly"></div></div>
+        <div><span class="stat-v lime" data-source="account" data-field="weighted_iroas" data-row="0">—</span><span class="stat-l">iROAS</span><span class="stat-n">Revenue the mail caused, per $1</span></div>
+        <div><span class="stat-v" data-source="account" data-field="cpa" data-row="0">—</span><span class="stat-l">CPA</span><span class="stat-n">AOV <span data-source="account" data-field="aov" data-row="0">—</span></span></div>
+      </div>
+      <p class="window">Send dates <b data-source="account" data-field="first_send" data-row="0">—</b> to <b data-source="account" data-field="last_send" data-row="0">—</b>. Orders count toward a postcard for 48 days after it is mailed, so figures here are final for postcards sent through <b data-source="account" data-field="final_through" data-row="0">—</b>. Sends since then (<b data-source="account" data-field="in_flight_spend" data-row="0">—</b>, <b data-source="account" data-field="in_flight_postcards" data-row="0">—</b> postcards) are still collecting orders, so recent months will keep rising.</p>
+    </div>
+  </section>
+
+  <section class="band" id="incremental">
+    <div class="wrap">
+      <p class="label">Incremental results</p>
+      <h2 class="h2" id="h-incremental">What the mail added on top of orders you would have had anyway.</h2>
+      <p class="sub">Measured against a control group that wasn't mailed</p>
+      <div class="incr">
+        <div class="card">
+          <p class="label muted">Spend-weighted iROAS</p>
+          <span class="big"><span class="hl" data-source="account" data-field="weighted_iroas" data-row="0">—</span></span>
+          <p class="card-note" style="margin: 20px 0 0">iROAS is the return on the revenue the mail actually caused: what mailed customers spent beyond a random control group, per $1 of postcards. Anything above 1.00 pays for itself in new revenue alone.</p>
+          <div class="mini">
+            <div><span class="mini-v" data-source="account" data-field="irevenue" data-row="0">—</span><span class="mini-l">iRevenue</span></div>
+            <div><span class="mini-v" data-source="account" data-field="measured_campaigns" data-row="0">—</span><span class="mini-l">Campaigns measured</span></div>
+            <div><span class="mini-v" data-source="account" data-field="measured_share" data-row="0">—</span><span class="mini-l">Share of spend measured</span></div>
+          </div>
+        </div>
+        <div class="card" id="lift-card">
+          <h3 class="card-title">ROAS vs. iROAS by campaign</h3>
+          <p class="card-note">ROAS counts every order from a mailed customer, including ones they would have placed anyway. iROAS keeps only the lift. The gap is widest for existing customers.</p>
+          <div class="lift" id="lift" data-source="campaign_stats"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tight" id="recommendations">
+    <div class="wrap">
+      <p class="label">Recommendations</p>
+      <h2 class="h2" id="h-recs">What to do next.</h2>
+      <p class="sub">Growth first, ordered by the iRevenue each could add</p>
+      <div class="recs" id="recs" data-source="recommendations"></div>
+    </div>
+  </section>
+
+  <section class="dark band" id="plan">
+    <div class="wrap">
+      <p class="label">Budget plan</p>
+      <h2 class="h2" id="h-plan">Put more behind what's proven.</h2>
+      <p class="sub">Monthly spend by campaign, now vs. proposed</p>
+      <div class="plan">
+        <div id="plan-rows" data-source="plan"></div>
+        <div class="totals">
+          <div><span class="tl">Change in monthly spend</span><span class="tv lime" data-source="plan_totals" data-field="change" data-row="0">—</span></div>
+          <div><span class="tl">Projected iRevenue per month</span><span class="tv" data-source="plan_totals" data-field="projected_irevenue" data-row="0">—</span></div>
+          <p>"Now" is each campaign's average monthly spend over <b data-source="account" data-field="run_window" data-row="0">—</b>; campaigns not sending today start from zero. Projections assume each campaign keeps its current iROAS, which usually eases as volume grows. A campaign pays for itself in new revenue while its iROAS stays above 1.00. Review results 48 days after the first increased send.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="trend">
+    <div class="wrap">
+      <p class="label">Trend</p>
+      <h2 class="h2">Spend and return by send month.</h2>
+      <p class="sub">Final months solid, recent months still collecting orders</p>
+      <div class="grid2">
+        <div class="card"><h3 class="card-title">Monthly spend</h3><p class="card-note">Spikes are often one-time customer sends, such as Black Friday mailings.</p><div class="chart" id="spend-chart" data-source="monthly"></div></div>
+        <div class="card"><h3 class="card-title">Monthly ROAS</h3><p class="card-note">ROAS jumps in months with a one-time customer send. Hollow points are still collecting orders.</p><div class="chart" id="roas-chart" data-source="monthly"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tight" id="always-on">
+    <div class="wrap">
+      <p class="label">Always-on programs</p>
+      <h2 class="h2">Your automated campaigns, month by month.</h2>
+      <p class="sub">Conversion rate by final send month, one shared scale</p>
+      <p class="body muted" style="font-size: .875rem">Conversion rate is orders per postcard. A campaign marked saturating converted far less after its volume jumped, a sign its audience is wearing thin.</p>
+      <div class="ao" id="ao" data-source="always_on"></div>
+    </div>
+  </section>
+
+  <section class="band tight" id="breakdown">
+    <div class="wrap">
+      <p class="label">Breakdown</p>
+      <h2 class="h2">Where the results come from.</h2>
+      <p class="sub">By campaign category and by campaign</p>
+      <div class="cats" id="cats" data-source="categories"></div>
+      <div class="card" id="campaigns">
+        <div class="tools">
+          <h3 class="card-title" style="margin: 0">Every campaign</h3>
+          <input class="search" id="camp-search" type="search" placeholder="Search campaigns" aria-label="Search campaigns">
+        </div>
+        <p class="card-note">Blue rows ran with a control group, so they have an iROAS. Spend and iRevenue are lifetime; ROAS and CPA use final results only.</p>
+        <div class="tw">
+          <table id="camp-table" data-source="campaign_stats" data-row-key="campaign_id">
+            <thead><tr>
+              <th data-field="short_name" data-k="short_name" class="l"><button type="button">Campaign</button></th>
+              <th data-field="status" data-k="status" class="l"><button type="button">Status</button></th>
+              <th data-field="last_send" data-k="last_send" class="l hide-sm"><button type="button">Last sent</button></th>
+              <th data-field="spend" data-k="spend" aria-sort="descending"><button type="button">Spend</button></th>
+              <th data-field="roas" data-k="roas"><button type="button">ROAS</button></th>
+              <th data-field="cpa" data-k="cpa" class="hide-sm"><button type="button">CPA</button></th>
+              <th data-field="iroas" data-k="iroas"><button type="button">iROAS</button></th>
+              <th data-field="irpr" data-k="irpr" class="hide-sm"><button type="button">iRPR</button></th>
+              <th data-field="irevenue" data-k="irevenue"><button type="button">iRevenue</button></th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tight" id="notes">
+    <div class="wrap">
+      <div class="card">
+        <h3 class="card-title">How to read this page</h3>
+        <p class="card-note">Everything here recalculates from your Campaign Data sheet each time the page loads.</p>
+        <dl class="defs">
+          <div><dt>iROAS and iRevenue</dt><dd>iROAS is one number per campaign over its whole life, and it only exists where a control group ran. iRevenue is the revenue that number implies; iRPR is the same per postcard.</dd></div>
+          <div><dt>A blank iROAS</dt><dd>Either the campaign had no control group, so its lift is unmeasured (adding one is how it gets an iROAS), or it had one and the mailed customers did no better than the control group. It never means zero.</dd></div>
+          <div><dt>Recent months</dt><dd>Orders count for 48 days after mailing and postcards take about a week to land. Recent sends are still collecting orders and are not a drop in performance.</dd></div>
+          <div><dt>More orders than postcards</dt><dd>Every order a mailed customer places within 48 days counts, repeat orders included. That is also why some one-time customer sends show very high ROAS.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="engine.js"></script>
+<script src="common.js"></script>
+<script>
+(function () {
+  const F = P.F;
+  const root = document.getElementById('pp');
+  const fmts = { weighted_iroas: F.money, orders: F.int, revenue: F.moneyC, irevenue: F.money, spend: F.money, postcards: F.int, roas: F.ratio, cpa: F.money, aov: F.money, measured_campaigns: F.int, measured_share: F.pct, first_send: F.day, last_send: F.day, final_through: F.day, in_flight_spend: F.money, in_flight_postcards: F.int, run_window: (v) => v ? F.mon(v.slice(0, 7)) + ' to ' + F.mon(v.slice(-7)) : '—' };
+  const tfmts = { change: F.signedMoney, projected_irevenue: F.money0 };
+  const state = { key: 'spend', dir: 'descending', q: '' };
+  const tbody = document.querySelector('#camp-table tbody');
+  const drawTable = () => {
+    tbody.replaceChildren();
+    const d = dash.data('campaign_stats'); if (d.status !== 'ok') return;
+    const q = state.q.toLowerCase();
+    d.data.filter((r) => !q || [r.campaign, r.short_name, r.category, r.status].join(' ').toLowerCase().includes(q)).sort(P.cmp(state)).forEach((r) => {
+      const tr = P.el('tr', r.iroas != null ? 'measured' : ''); tr.dataset.key = r.campaign_id;
+      const nm = P.el('td', 'nm'); nm.appendChild(P.el('b', null, r.short_name)); nm.appendChild(P.el('small', null, r.category + (r.short_name !== r.campaign ? ' · ' + r.campaign : ''))); tr.appendChild(nm);
+      const st = P.el('td', 'l'); st.appendChild(P.el('span', 'st' + (r.status === 'Running' ? ' on' : ''), r.status)); tr.appendChild(st);
+      tr.appendChild(P.el('td', 'l hide-sm', F.day(r.last_send)));
+      tr.appendChild(P.el('td', null, F.money(r.spend)));
+      tr.appendChild(P.el('td', null, F.ratio(r.roas)));
+      tr.appendChild(P.el('td', 'hide-sm', F.money(r.cpa)));
+      tr.appendChild(P.el('td', r.iroas != null ? 'ir' : 'dim', F.ratio(r.iroas)));
+      tr.appendChild(P.el('td', 'hide-sm' + (r.irpr == null ? ' dim' : ''), F.money(r.irpr)));
+      tr.appendChild(P.el('td', r.irevenue == null ? 'dim' : '', F.money(r.irevenue)));
+      tbody.appendChild(tr);
+    });
+  };
+  P.sortable(document.getElementById('camp-table'), state, drawTable);
+  document.getElementById('camp-search').addEventListener('input', (e) => { state.q = e.target.value; drawTable(); });
+
+  const guard = (id, box, draw) => { const s = P.st(id); if (s === 'ok') draw(); else if (s !== 'loading') P.fail(box); };
+
+  dash.onData(() => {
+    P.fill(root, 'account', fmts);
+    const ac = dash.data('account');
+    if (ac.status === 'ok' && ac.data[0]) {
+      const wi = ac.data[0].weighted_iroas;
+      document.getElementById('h-incremental').textContent = wi != null && wi >= 1 ? 'The mail creates new revenue, not just credit for orders.' : 'What the mail added on top of orders you would have had anyway.';
+      document.getElementById('h-plan').textContent = wi == null ? 'Measure first, then grow.' : (wi < 1 ? 'Move budget to what pays for itself.' : 'Put more behind what\'s proven.');
+    }
+    P.fill(root, 'plan_totals', tfmts);
+    const mo = dash.data('monthly');
+    if (mo.status === 'ok') {
+      P.spark(document.getElementById('spark-spend'), mo.data, 'spend', 'var(--lime)');
+      P.spark(document.getElementById('spark-revenue'), mo.data, 'revenue', 'var(--blue)');
+      P.spark(document.getElementById('spark-roas'), mo.data, 'roas', 'var(--blue)');
+      P.monthlyBars(document.getElementById('spend-chart'), mo.data);
+      P.roasLine(document.getElementById('roas-chart'), mo.data);
+    } else if (mo.status !== 'loading') { P.fail(document.getElementById('spend-chart')); P.fail(document.getElementById('roas-chart')); }
+    guard('campaign_stats', document.getElementById('lift'), () => P.lift(document.getElementById('lift'), dash.data('campaign_stats').data));
+    guard('recommendations', document.getElementById('recs'), () => P.recs(document.getElementById('recs'), dash.data('recommendations').data));
+    guard('plan', document.getElementById('plan-rows'), () => P.planRows(document.getElementById('plan-rows'), dash.data('plan').data));
+    guard('always_on', document.getElementById('ao'), () => { if (P.ok('campaign_stats')) P.aoGrid(document.getElementById('ao'), dash.data('always_on').data, dash.data('campaign_stats').data); });
+    guard('categories', document.getElementById('cats'), () => P.cats(document.getElementById('cats'), dash.data('categories').data));
+    drawTable();
+    if (['account', 'monthly', 'campaign_stats', 'recommendations', 'plan', 'categories'].every((id) => P.ok(id))) window.__ppDrawn = true;
+  });
+})();
+</script>
+
