@@ -92,8 +92,6 @@
 .ppx .rec .cols p { font-size: .9375rem; line-height: 1.7; }
 .ppx .rec .cols .clbl { display: block; font-size: .6875rem; text-transform: uppercase; letter-spacing: .10em; color: var(--muted); margin-bottom: 4px; }
 .ppx .rec .note { font-size: .8125rem; color: var(--muted); line-height: 1.6; }
-.ppx .rec .next { background: var(--sky); border-radius: 8px; padding: 14px 16px; font-size: .9375rem; line-height: 1.6; margin-top: auto; }
-.ppx .rec .next .clbl { display: block; font-size: .6875rem; text-transform: uppercase; letter-spacing: .10em; color: var(--navy); font-weight: 600; margin-bottom: 4px; }
 .ppx .kind { font-size: .6875rem; text-transform: uppercase; letter-spacing: .10em; font-weight: 600; color: var(--navy); }
 .ppx .kind.improve { color: var(--warn); }
 .ppx .conf { display: inline-flex; align-items: center; gap: 8px; font-size: .6875rem; text-transform: uppercase; letter-spacing: .10em; color: var(--muted); }
@@ -182,39 +180,6 @@
 .ppx td .st.on::before { background: var(--good); }
 .ppx td.ir { color: var(--navy); font-weight: 600; }
 .ppx td.dim { color: var(--faint); }
-.ppx td.next { color: var(--muted); white-space: normal; min-width: 14rem; text-align: left; }
-.ppx .act { font-size: .6875rem; letter-spacing: .10em; text-transform: uppercase; font-weight: 600; color: var(--navy); }
-.ppx .act.Improve, .ppx .act.Learn { color: var(--warn); }
-.ppx .act.Repeat { color: var(--good); }
-.ppx .act.none { color: var(--faint); }
-
-/* AM: flags, agenda, Q&A */
-.ppx .flags { display: grid; gap: 12px; }
-.ppx .flag { display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; gap: 8px 24px; align-items: baseline; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 22px 28px; }
-.ppx .flag .sev { font-size: .6875rem; letter-spacing: .10em; text-transform: uppercase; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
-.ppx .flag .sev::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--faint); }
-.ppx .flag.Critical { border-color: rgba(194,69,61,.45); }
-.ppx .flag.Critical .sev { color: var(--bad); } .ppx .flag.Critical .sev::before { background: var(--bad); }
-.ppx .flag.Warning .sev { color: var(--warn); } .ppx .flag.Warning .sev::before { background: var(--warn); }
-.ppx .flag.Watch .sev::before { background: var(--blue); }
-.ppx .flag .ft { font-weight: 600; line-height: 1.4; }
-.ppx .flag .fd { color: var(--muted); font-size: .875rem; line-height: 1.7; margin-top: 4px; }
-.ppx .flag .fm { font-size: .75rem; color: var(--muted); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-@media (max-width: 720px) { .ppx .flag { grid-template-columns: minmax(0, 1fr); } .ppx .flag .fm { text-align: left; } }
-.ppx .agenda { list-style: none; margin: 0; padding: 0; }
-.ppx .agenda li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 16px 0; border-top: 1px solid var(--line); }
-.ppx .agenda li:first-child { border-top: none; padding-top: 0; }
-.ppx .agenda .n { font-family: var(--serif); font-size: 2rem; line-height: 1; color: var(--blue); }
-.ppx .agenda .t { font-weight: 600; line-height: 1.4; }
-.ppx .agenda .s { color: var(--muted); font-size: .875rem; line-height: 1.6; margin-top: 4px; }
-.ppx .qa details { border-top: 1px solid var(--line); padding: 16px 0; }
-.ppx .qa details:first-child { border-top: none; padding-top: 0; }
-.ppx .qa summary { cursor: pointer; font-weight: 600; line-height: 1.45; list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
-.ppx .qa summary::-webkit-details-marker { display: none; }
-.ppx .qa summary::after { content: "+"; color: var(--blue); font-family: var(--serif); font-size: 1.5rem; line-height: 1; }
-.ppx .qa details[open] summary::after { content: "–"; }
-.ppx .qa p { color: var(--muted); font-size: .875rem; line-height: 1.7; margin-top: 8px; }
-.ppx .internal { color: var(--lime); }
 
 /* States */
 .ppx [data-dash-source-state=empty] { color: transparent; }
